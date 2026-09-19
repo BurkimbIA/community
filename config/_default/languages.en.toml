@@ -1,0 +1,24 @@
+disabled = false
+locale = "en"
+label = "English"
+weight = 2
+title = "BurkimbIA"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  logo = "img/logo.svg"
+  description = "The BurkimbIA community blog: AI, African languages and culture."
+  copyright = "© { year } BurkimbIA. All rights reserved."
+
+  [params.author]
+    name = "BurkimbIA"
+    headline = "AI that speaks our languages"
+    links = [
+      { github = "https://github.com/BurkimbIA" },
+      { linkedin = "https://linkedin.com/company/burkimbia" },
+      { facebook = "https://www.facebook.com/profile.php?id=61590849223534" },
+      { email = "mailto:contact@burkimbia.com" },
+    ]

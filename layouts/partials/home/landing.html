@@ -1,0 +1,35 @@
+{{/* Site override of Blowfish's landing layout: text on the left, framed illustration on the right. */}}
+{{ $img := "" }}
+{{ with .Params.heroImage }}
+  {{ with resources.Get . }}{{ $img = .Resize "960x q85" }}{{ end }}
+{{ end }}
+<article class="bia-hero-wrap">
+  <section class="bia-hero">
+    <div class="bia-hero__text">
+      {{ with .Params.heroCaption | default .Site.Params.Author.name }}
+        <p class="landing-rise bia-hero__caption">{{ . | markdownify }}</p>
+      {{ end }}
+      {{ with .Title }}
+        <h1 class="landing-rise landing-rise-1 bia-hero__title">{{ . | emojify }}</h1>
+      {{ end }}
+      {{ with .Params.heroLead }}
+        <p class="landing-rise landing-rise-2 bia-hero__lead">{{ . | markdownify }}</p>
+      {{ end }}
+      {{ with .Params.heroButtons }}
+        <div class="landing-rise landing-rise-3 bia-hero__actions">
+          {{ range . }}
+            {{ partial "cta-button.html" (dict "url" .url "label" .label "style" .style "github" .github) }}
+          {{ end }}
+        </div>
+      {{ end }}
+      {{ with .Content }}
+        <section class="landing-rise landing-rise-4 prose prose-lg mt-8 dark:prose-invert">{{ . }}</section>
+      {{ end }}
+    </div>
+    {{ with $img }}
+      <figure class="landing-rise landing-rise-2 bia-hero__figure nozoom">
+        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $.Params.heroImageAlt | default "" }}" loading="eager" decoding="async" fetchpriority="high">
+      </figure>
+    {{ end }}
+  </section>
+</article>

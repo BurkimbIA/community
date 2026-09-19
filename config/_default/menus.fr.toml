@@ -1,0 +1,49 @@
+[[main]]
+  name = "À propos"
+  pageRef = "about"
+  weight = 20
+
+[[main]]
+  name = "Nos activités"
+  pageRef = "activities"
+  weight = 30
+
+[[main]]
+  name = "Projets"
+  pageRef = "projects"
+  weight = 40
+
+[[main]]
+  name = "Datasets"
+  pageRef = "datasets"
+  weight = 50
+
+[[main]]
+  name = "Articles"
+  pageRef = "posts"
+  weight = 60
+
+[[main]]
+  name = "Contact"
+  pageRef = "contact"
+  weight = 80
+
+[[footer]]
+  name = "Catégories"
+  pageRef = "categories"
+  weight = 10
+
+[[footer]]
+  name = "Tags"
+  pageRef = "tags"
+  weight = 20
+
+[[footer]]
+  name = "GitHub"
+  url = "https://github.com/BurkimbIA"
+  weight = 30
+
+[[footer]]
+  name = "Hugging Face"
+  url = "https://huggingface.co/burkimbia"
+  weight = 40
