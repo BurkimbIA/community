@@ -28,6 +28,21 @@
   pageRef = "contact"
   weight = 80
 
+[[main]]
+  name = "BurkimbIA"
+  url = "https://burkimbia.com"
+  weight = 90
+
+[[footer]]
+  name = "BurkimbIA"
+  url = "https://burkimbia.com"
+  weight = 5
+
+[[footer]]
+  name = "Platform"
+  url = "https://platform.burkimbia.com"
+  weight = 6
+
 [[footer]]
   name = "Categories"
   pageRef = "categories"
