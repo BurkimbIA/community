@@ -63,6 +63,50 @@ translations, which is what makes the FR/EN switch work.
 Projects, activities and datasets work the same way under `content/projects/`,
 `content/activities/` and `content/datasets/`.
 
+## Drafts and confidential posts
+
+This repository is **public**. `draft = true` keeps a post off the website, but
+anyone can read the file on GitHub once it is pushed, and it stays in the Git
+history even if you delete it later. So:
+
+| Content | Where |
+|---|---|
+| Ready, or not ready but nothing secret | This repo (`draft = true` or a future `date` to hold it back) |
+| Confidential: unannounced results, partners, links to private repos, personal data | The private copy [`BurkimbIA/community-private`](https://github.com/BurkimbIA/community-private), until publication day |
+
+### One-time setup
+
+```bash
+git remote add private git@github.com:BurkimbIA/community-private.git
+git config remote.pushDefault private
+git config branch.main.pushRemote private
+git config core.hooksPath .githooks
+```
+
+With this, a plain `git push` goes to the private repo. The `pre-push` hook
+refuses to send anything but `main` and `public/*` branches to this public repo.
+
+### Workflow
+
+1. Write the post on a branch such as `post/my-post` and push it to the private
+   repo only: `git push -u private post/my-post`. Review it with a pull request
+   in `community-private`.
+2. On publication day, squash it into one clean commit on a `public/` branch, so
+   none of the intermediate drafts reach the public history:
+
+   ```bash
+   git switch -c public/my-post origin/main
+   git merge --squash post/my-post
+   git commit -m "post: my post"
+   git push origin public/my-post
+   ```
+
+3. Open a pull request in this repo and merge it. The site deploys.
+4. Bring the private copy up to date: `git fetch origin && git push private origin/main:main`.
+
+Before publishing, check the post for links to private repositories, figures
+not yet announced, personal data, and consent for any voice or photo.
+
 ## Configure
 
 | What | Where |
